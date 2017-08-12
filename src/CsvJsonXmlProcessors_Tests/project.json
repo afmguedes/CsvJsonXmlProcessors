@@ -1,0 +1,26 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "testRunner": "xunit",
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.1.2"
+    },
+    "dotnet-test-xunit": "2.2.0-*",
+    "xunit": "2.2.0",
+
+    "CsvJsonXmlProcessors": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
+  }
+}
