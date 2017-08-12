@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "testRunner": "xunit",
@@ -10,8 +10,8 @@
     },
     "dotnet-test-xunit": "2.2.0-*",
     "xunit": "2.2.0",
-
-    "CsvJsonXmlProcessors": "1.0.0-*"
+    "CsvJsonXmlProcessors": "1.0.0-*",
+    "Moq": "4.7.99"
   },
 
   "frameworks": {
