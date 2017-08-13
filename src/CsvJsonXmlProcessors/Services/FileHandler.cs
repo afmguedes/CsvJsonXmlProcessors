@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CsvJsonXmlProcessors.Services {
 	public static class FileHandler {
 		public static string ReadFileContent(string filePath) {
-			string content;
+			var content = string.Empty;
 
 			try {
 				var fileStream = File.OpenRead(filePath);
@@ -18,7 +18,6 @@ namespace CsvJsonXmlProcessors.Services {
 
 			} catch (Exception e) {
 				Console.WriteLine($"Error attempting to read from file: {filePath} with error:\r\n{e}");
-				throw;
 			}
 
 			return content;
@@ -35,8 +34,9 @@ namespace CsvJsonXmlProcessors.Services {
 				return true;
 			} catch (Exception e) {
 				Console.WriteLine($"Error attempting to write to file: {filePath} with error:\r\n{e}");
-				throw;
 			}
+
+			return false;
 		}
 	}
 }
