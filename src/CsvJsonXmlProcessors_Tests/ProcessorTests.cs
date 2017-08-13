@@ -10,7 +10,20 @@ using Xunit;
 namespace CsvJsonXmlProcessors_Tests {
 	public class ProcessorTests {
 		[Fact]
-		public void CanReadCsvData() {
+		public void FactoryCreatesCorrectProcessor() {
+			var processorFactory = new Mock<ProcessorFactory>().Object;
+
+			var csvProcessor = processorFactory.CreateFileProcessor(FileType.CSV);
+			var jsonProcessor = processorFactory.CreateFileProcessor(FileType.JSON);
+			var xmlProcessor = processorFactory.CreateFileProcessor(FileType.XML);
+
+			Assert.IsType<CsvProcessor>(csvProcessor);
+			Assert.IsType<JsonProcessor>(jsonProcessor);
+			Assert.IsType<XmlProcessor>(xmlProcessor);
+		}
+
+		[Fact]
+		public void ProcessorCanReadCsvData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var csvProcessor = processorFactory.CreateFileProcessor(FileType.CSV);
 			var csvTestFile = new FileInformation(FileType.CSV, $"{Directory.GetCurrentDirectory()}\\usersTest.csv");
@@ -21,10 +34,8 @@ namespace CsvJsonXmlProcessors_Tests {
 			Assert.Equal(userList.Count, 2);
 		}
 
-
-
 		[Fact]
-		public void CanReadJsonData() {
+		public void ProcessorCanReadJsonData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var jsonProcessor = processorFactory.CreateFileProcessor(FileType.JSON);
 			var jsonTestFile = new FileInformation(FileType.JSON, $"{Directory.GetCurrentDirectory()}\\usersTest.json");
@@ -35,11 +46,8 @@ namespace CsvJsonXmlProcessors_Tests {
 			Assert.Equal(userList.Count, 5);
 		}
 
-
-
-
 		[Fact]
-		public void CanReadXmlData() {
+		public void ProcessorCanReadXmlData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var xmlProcessor = processorFactory.CreateFileProcessor(FileType.XML);
 			var xmlTestFile = new FileInformation(FileType.XML, $"{Directory.GetCurrentDirectory()}\\usersTest.xml");
