@@ -12,8 +12,11 @@ namespace CsvJsonXmlProcessors.Models {
 	public class JsonProcessor : IFileProcessor {
 		public IEnumerable<string[]> ReadFromFile(FileInformation file) {
 			var fileContent = FileHandler.ReadFileContent(file.Path);
-			var array = JArray.Parse(fileContent);
 
+			if (string.IsNullOrEmpty(fileContent))
+				return null;
+
+			var array = JArray.Parse(fileContent);
 			var data = new List<string[]>();
 
 			// There would be an easier and cleaner way to convert JSON to a list of users,

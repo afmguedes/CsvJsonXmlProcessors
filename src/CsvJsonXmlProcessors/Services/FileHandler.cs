@@ -17,7 +17,7 @@ namespace CsvJsonXmlProcessors.Services {
 				}
 
 			} catch (Exception e) {
-				Console.WriteLine($"Error attempting to read from file: {filePath} with error:\r\n{e}");
+				Console.WriteLine($"Error attempting to read from file: {filePath} with message:\r\n{e}");
 			}
 
 			return content;
@@ -33,7 +33,7 @@ namespace CsvJsonXmlProcessors.Services {
 
 				return true;
 			} catch (Exception e) {
-				Console.WriteLine($"Error attempting to write to file: {filePath} with error:\r\n{e}");
+				Console.WriteLine($"Error attempting to write to file: {filePath} with message:\r\n{e}");
 			}
 
 			return false;

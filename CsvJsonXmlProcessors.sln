@@ -14,6 +14,13 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CsvJsonXmlProcessors", "src
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "CsvJsonXmlProcessors_Tests", "src\CsvJsonXmlProcessors_Tests\CsvJsonXmlProcessors_Tests.xproj", "{8537D858-84F3-4618-B9FE-204F10C6FFDD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4F39B46E-E483-4BAA-BAE1-1EC52C1D1C3D}"
+	ProjectSection(SolutionItems) = preProject
+		src\CsvJsonXmlProcessors\Data\users.csv = src\CsvJsonXmlProcessors\Data\users.csv
+		src\CsvJsonXmlProcessors\Data\users.json = src\CsvJsonXmlProcessors\Data\users.json
+		src\CsvJsonXmlProcessors\Data\users.xml = src\CsvJsonXmlProcessors\Data\users.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9583A38C-2235-4294-ACD6-3F97CB31081E} = {38579863-C175-4A84-AA54-A482FFAADC9F}
 		{8537D858-84F3-4618-B9FE-204F10C6FFDD} = {38579863-C175-4A84-AA54-A482FFAADC9F}
+		{4F39B46E-E483-4BAA-BAE1-1EC52C1D1C3D} = {CC3A8FD9-BB8A-41D0-BD6D-D90B153BD261}
 	EndGlobalSection
 EndGlobal
