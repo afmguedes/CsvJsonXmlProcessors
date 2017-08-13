@@ -19,12 +19,12 @@ namespace CsvJsonXmlProcessors.Models {
 			return data;
 		}
 
-		public void WriteToFile(List<User> users, FileInformation file) {
+		public bool WriteToFile(List<User> users, FileInformation file) {
 			var data = new StringBuilder("User ID,First Name,Last Name,Username,User Type,Last Login Time\r\n");
 			
 			users.ForEach(u => data.AppendLine($"{u.UserID},{u.FirstName},{u.LastName},{u.UserName},{u.Type.ToString()},{u.LastLoginTime:yyyy-MM-ddThh:mm:ss.ffffff}"));
 
-			FileHandler.WriteContentToFile(file.Path, data.ToString());
+			return FileHandler.WriteContentToFile(file.Path, data.ToString());
 		}
 	}
 }

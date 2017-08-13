@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-16"?>
+<users>
+    <user>
+        <userid>1</userid>
+        <firstname>Andre</firstname>
+        <surname>Guedes</surname>
+        <username>afmguedes</username>
+        <type>Employee</type>
+        <lastlogintime>2017-00-12T12:00:00.000000</lastlogintime>
+    </user>
+    <user>
+        <userid>2</userid>
+        <firstname>Graziano</firstname>
+        <surname>Cava</surname>
+        <username>grax</username>
+        <type>Employee</type>
+        <lastlogintime>2017-00-12T12:00:00.000000</lastlogintime>
+    </user>
+</users>

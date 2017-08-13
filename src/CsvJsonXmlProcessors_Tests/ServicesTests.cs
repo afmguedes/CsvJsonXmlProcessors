@@ -52,7 +52,7 @@ namespace CsvJsonXmlProcessors_Tests {
 		public void CanMapValidParsedDataToListOfUsers() {
 			var parsedData = new List<string[]> {
 				new[] { "1", "Andre", "Guedes", "afmguedes", "Manager", "12-08-2017 00:00:00" },
-				new[] { "2", "Grazianno", "Cava", "grax", "Employee", "12-08-2017 00:00:00" }
+				new[] { "2", "Graziano", "Cava", "grax", "Employee", "12-08-2017 00:00:00" }
 			};
 
 			var userList = Mapper.MapToUserList(parsedData).ToList();

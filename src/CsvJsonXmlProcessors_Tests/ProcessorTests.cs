@@ -26,36 +26,81 @@ namespace CsvJsonXmlProcessors_Tests {
 		public void ProcessorCanReadCsvData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var csvProcessor = processorFactory.CreateFileProcessor(FileType.CSV);
-			var csvTestFile = new FileInformation(FileType.CSV, $"{Directory.GetCurrentDirectory()}\\usersTest.csv");
+			var csvReadTestFile = new FileInformation(FileType.CSV, $"{Directory.GetCurrentDirectory()}\\usersReadTest.csv");
 
-			var userList = csvProcessor.ReadFromFile(csvTestFile).ToList();
+			var userList = csvProcessor.ReadFromFile(csvReadTestFile).ToList();
 
 			Assert.NotEmpty(userList);
 			Assert.Equal(userList.Count, 2);
 		}
 
 		[Fact]
+		public void ProcessorCanWriteCsvData() {
+			var processorFactory = new Mock<ProcessorFactory>().Object;
+			var csvProcessor = processorFactory.CreateFileProcessor(FileType.CSV);
+			var csvWriteTestFile = new FileInformation(FileType.CSV, $"{Directory.GetCurrentDirectory()}\\usersWriteTest.csv");
+			var userList = new List<User>() {
+				new User(1, "Andre", "Guedes", "afmguedes", UserType.Employee, new DateTime(2017, 8, 12)),
+				new User(2, "Graziano", "Cava", "grax", UserType.Employee, new DateTime(2017, 8, 12))
+			};
+
+			var result = csvProcessor.WriteToFile(userList, csvWriteTestFile);
+
+			Assert.True(result);
+		}
+
+		[Fact]
 		public void ProcessorCanReadJsonData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var jsonProcessor = processorFactory.CreateFileProcessor(FileType.JSON);
-			var jsonTestFile = new FileInformation(FileType.JSON, $"{Directory.GetCurrentDirectory()}\\usersTest.json");
+			var jsonReadTestFile = new FileInformation(FileType.JSON, $"{Directory.GetCurrentDirectory()}\\usersReadTest.json");
 
-			var userList = jsonProcessor.ReadFromFile(jsonTestFile).ToList();
+			var userList = jsonProcessor.ReadFromFile(jsonReadTestFile).ToList();
 
 			Assert.NotEmpty(userList);
 			Assert.Equal(userList.Count, 5);
 		}
 
 		[Fact]
+		public void ProcessorCanWriteJsonData() {
+			var processorFactory = new Mock<ProcessorFactory>().Object;
+			var jsonProcessor = processorFactory.CreateFileProcessor(FileType.JSON);
+			var jsonWriteTestFile = new FileInformation(FileType.JSON, $"{Directory.GetCurrentDirectory()}\\usersWriteTest.json");
+			var userList = new List<User>() {
+				                                new User(1, "Andre", "Guedes", "afmguedes", UserType.Employee, new DateTime(2017, 8, 12)),
+				                                new User(2, "Graziano", "Cava", "grax", UserType.Employee, new DateTime(2017, 8, 12))
+			                                };
+
+			var result = jsonProcessor.WriteToFile(userList, jsonWriteTestFile);
+
+			Assert.True(result);
+		}
+
+		[Fact]
 		public void ProcessorCanReadXmlData() {
 			var processorFactory = new Mock<ProcessorFactory>().Object;
 			var xmlProcessor = processorFactory.CreateFileProcessor(FileType.XML);
-			var xmlTestFile = new FileInformation(FileType.XML, $"{Directory.GetCurrentDirectory()}\\usersTest.xml");
+			var xmlReadTestFile = new FileInformation(FileType.XML, $"{Directory.GetCurrentDirectory()}\\usersReadTest.xml");
 
-			var userList = xmlProcessor.ReadFromFile(xmlTestFile).ToList();
+			var userList = xmlProcessor.ReadFromFile(xmlReadTestFile).ToList();
 
 			Assert.NotEmpty(userList);
 			Assert.Equal(userList.Count, 3);
+		}
+
+		[Fact]
+		public void ProcessorCanWriteXmlData() {
+			var processorFactory = new Mock<ProcessorFactory>().Object;
+			var xmlProcessor = processorFactory.CreateFileProcessor(FileType.XML);
+			var xmlWriteTestFile = new FileInformation(FileType.XML, $"{Directory.GetCurrentDirectory()}\\usersWriteTest.xml");
+			var userList = new List<User>() {
+				                                new User(1, "Andre", "Guedes", "afmguedes", UserType.Employee, new DateTime(2017, 8, 12)),
+				                                new User(2, "Graziano", "Cava", "grax", UserType.Employee, new DateTime(2017, 8, 12))
+			                                };
+
+			var result = xmlProcessor.WriteToFile(userList, xmlWriteTestFile);
+
+			Assert.True(result);
 		}
 	}
 }

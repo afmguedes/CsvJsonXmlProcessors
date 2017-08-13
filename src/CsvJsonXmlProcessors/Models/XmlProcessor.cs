@@ -39,7 +39,7 @@ namespace CsvJsonXmlProcessors.Models {
 			return data;
 		}
 
-		public void WriteToFile(List<User> users, FileInformation file) {
+		public bool WriteToFile(List<User> users, FileInformation file) {
 			var usersNode = new XElement("users");
 
 			if (users.Count > 0)
@@ -65,7 +65,7 @@ namespace CsvJsonXmlProcessors.Models {
 				doc.Save(writer);
 			}
 
-			FileHandler.WriteContentToFile(file.Path, data.ToString());
+			return FileHandler.WriteContentToFile(file.Path, data.ToString());
 		}
 	}
 }

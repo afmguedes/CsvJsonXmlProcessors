@@ -32,7 +32,7 @@ namespace CsvJsonXmlProcessors.Models {
 			return data;
 		}
 
-		public void WriteToFile(List<User> users, FileInformation file) {
+		public bool WriteToFile(List<User> users, FileInformation file) {
 			var settings = new JsonSerializerSettings
 			               {
 				               ContractResolver = new CustomContractResolver(),
@@ -43,7 +43,7 @@ namespace CsvJsonXmlProcessors.Models {
 
 			var data = JsonConvert.SerializeObject(users, Formatting.Indented, settings);
 
-			FileHandler.WriteContentToFile(file.Path, data);
+			return FileHandler.WriteContentToFile(file.Path, data);
 		}
 	}
 
